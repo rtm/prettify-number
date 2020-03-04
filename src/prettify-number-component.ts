@@ -23,9 +23,9 @@ export class PrettifyNumber extends LitElement {
   }
 
   prettify() {
-    const value = +this.input;
+    const value = this.input;
 
-    this.output = isNaN(value) ? "Invalid input" : prettifyNumber(value);
+    this.output = value === "" ? "" : isNaN(+value) ? "Invalid input" : prettifyNumber(+value);
   }
 
   handleInput(event: any) {

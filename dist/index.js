@@ -2503,8 +2503,8 @@ let PrettifyNumber = class PrettifyNumber extends LitElement {
         this.prettify();
     }
     prettify() {
-        const value = +this.input;
-        this.output = isNaN(value) ? "Invalid input" : prettifyNumber(value);
+        const value = this.input;
+        this.output = value === "" ? "" : isNaN(+value) ? "Invalid input" : prettifyNumber(+value);
     }
     handleInput(event) {
         this.input = event.target.value;
