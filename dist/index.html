@@ -1,15 +1,11 @@
 <html>
 
   <head>
-    <!-- CSS resources for Material components. -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 
+    <!-- Bring in bundled JS, including our custom element. -->
     <script src="index.js"></script>
-
-    <style>
-      body { font-family: sans-serif; }
-    </style>
   </head>
 
   <body>
@@ -21,6 +17,14 @@
     </p>
 
     <prettify-number input="1000000"></prettify-number>
+
+    <!-- Link to test results -->
+    <h3>Test results</h3>
+    <ul>
+      <li><a href="test-results.html" target="_blank">Test runs</a></li>
+      <li><a href="lcov-report" target="_blank">Coverage</a></li>
+    </ul>
+
   </body>
 
 </html>

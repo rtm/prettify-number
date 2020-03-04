@@ -4,6 +4,10 @@
 first few digits and up to one decimal place, with an indicator of the
 magnitude (M for million, B for billion, and T for trillion).
 
+## PREREQUISITES
+
+Install node/npm.
+
 ## USAGE
 
 This is a TypeScript program designed for use in node.js.

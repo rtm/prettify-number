@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest",
+    "test": "jest && cp -pr artifacts/test-results/test-results.html artifacts/test-results/lcov-report dist",
     "serve": "http-server dist",
     "zip": "zip -r prettify-number.zip * -x 'node_modules/*' -x prettify-number.zip",
     "start": "npm run build && npm run serve"
