@@ -7,7 +7,7 @@ miniature three-element table that we loop through to find the
 applicable case.
 
 In this case, we've chosen to write this in a way which is simple
-(hopefully not too "simple-minded"!) and obviously correct. The
+(but hopefully not "simple-minded"!) and obviously correct. The
 table-driven, algorithmic approach might be appropriate if we expected
 the spec to expand in the future to include handling of numbers
 between 1,000 and 999,999 ("12.3K"), or units greater than one
