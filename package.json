@@ -8,7 +8,8 @@
     "test": "jest && cp -pr artifacts/test-results/test-results.html artifacts/test-results/lcov-report dist",
     "serve": "http-server dist",
     "zip": "zip -r prettify-number.zip * -x 'node_modules/*' -x prettify-number.zip",
-    "start": "npm run build && npm run serve"
+    "start": "npm run build && npm run serve",
+    "deploy": "az storage blob upload-batch -d \\$web --account-name prettifynumber -s dist"
   },
   "author": "Bob Myers",
   "license": "UNLICENSED",

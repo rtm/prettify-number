@@ -2471,6 +2471,8 @@ const round = (m) => {
 };
 /** Prettify a number by taking the first few significant digits and adding a units suffix.
  * Numbers under one million, including negative numbers, are returned as is.
+ * The odd-looking "-5e4" and "-5e7" ensure that numbers such as 999,999,999 are
+ * formatted as 1B, and not 1000M.
  *
  * @param {number} n - number to be prettified.
  * @returns {string} prettified version of number
