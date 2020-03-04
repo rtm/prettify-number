@@ -7,7 +7,7 @@ import {prettifyNumber} from "../prettify-number";
 
 @customElement("prettify-number")
 export class PrettifyNumber extends LitElement {
-  input: string = "";
+  @property() input: string = "";
   @property() output: string = "";
 
   render() {
@@ -17,9 +17,19 @@ export class PrettifyNumber extends LitElement {
     `;
   }
 
-  handleInput(event: any) {
-    const value = event.target.value;
+  connectedCallback() {
+    super.connectedCallback();
+    this.prettify();
+  }
 
-    this.output = prettifyNumber(value);
+  prettify() {
+    const value = +this.input;
+
+    this.output = isNaN(value) ? "Invalid input" : prettifyNumber(value);
+  }
+
+  handleInput(event: any) {
+    this.input = event.target.value;
+    this.prettify();
   }
 }

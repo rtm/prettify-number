@@ -40,6 +40,10 @@ console.log(prettifyNumber(123456789012));
 
 We have provided a web component (build using `lit-element`) around this number prettification logic and made it available through a web page.
 
+    $ npm start
+
+which is equivalent to
+
     $ npm run build    # bundle the component and its dependencies
     $ npm run serve    # run a local server
 

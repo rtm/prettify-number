@@ -7,7 +7,7 @@
     "build": "rollup -c",
     "test": "jest",
     "serve": "http-server dist",
-    "zip": "zip prettify-number.zip * -x node_modules -x prettify-number.zip",
+    "zip": "zip -r prettify-number.zip * -x 'node_modules/*' -x prettify-number.zip",
     "start": "npm run build && npm run serve"
   },
   "author": "Bob Myers",

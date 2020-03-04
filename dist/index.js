@@ -2462,6 +2462,8 @@ LitElement.render = render$1;
  *
  * @param {number} m - number to round.
  * @returns {string} Rounded number with zero or one decimal places.
+ *
+ * See design notes in `docs/DESIGN_NOTES.md.
  */
 const round = (m) => (Math.round(m * 10) / 10).toFixed(Number.isInteger(m) ? 0 : 1);
 /** Prettify a number by taking the first few significant digits and adding a units suffix.
@@ -2470,11 +2472,13 @@ const round = (m) => (Math.round(m * 10) / 10).toFixed(Number.isInteger(m) ? 0 :
  * @returns {string} prettified version of number
  */
 function prettifyNumber(n) {
-    if (n < 1e6)
+    // These strange looking "995" values are designed to ensure that numbers which will be
+    // rounded up are treated correctly. We want 999,999,999 to display as 1.0B, not 1000M.
+    if (n < 995e3)
         return n.toString(); // Pass through numbers we don't handle as is.
-    if (n < 1e9)
+    if (n < 995e6)
         return round(n / 1e6) + "M";
-    if (n < 1e12)
+    if (n < 995e9)
         return round(n / 1e9) + "B";
     return round(n / 1e12) + "T";
 }
@@ -2491,14 +2495,25 @@ let PrettifyNumber = class PrettifyNumber extends LitElement {
     render() {
         return html `
       <input type="text" .value=${this.input} @input=${this.handleInput} />
-      <p>${this.output}</p>
+      <p style="font-size: larger; ">${this.output}</p>
     `;
     }
+    connectedCallback() {
+        super.connectedCallback();
+        this.prettify();
+    }
+    prettify() {
+        const value = +this.input;
+        this.output = isNaN(value) ? "Invalid input" : prettifyNumber(value);
+    }
     handleInput(event) {
-        const value = event.target.value;
-        this.output = prettifyNumber(value);
+        this.input = event.target.value;
+        this.prettify();
     }
 };
+__decorate([
+    property()
+], PrettifyNumber.prototype, "input", void 0);
 __decorate([
     property()
 ], PrettifyNumber.prototype, "output", void 0);
