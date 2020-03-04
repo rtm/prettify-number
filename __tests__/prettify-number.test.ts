@@ -15,6 +15,6 @@ test("trillion and some", should(9487634567534, "9.5T"));
 test("negative number", should(-2222, "-2222"));
 test("zero", should(0, "0"));
 test("small number with decimals", should(1.23456, "1.23456"));
-test("billions and a tiny bit", should(9000000001, "9.0B"));
+test("billions and a tiny bit", should(9000000001, "9B"));
 test("several hundred thousand", should(163929.7, "163929.7"));
-test("just under a billion", should(999999999.9, "1.0B"));
+test("just under a billion", should(999999999.9, "1B"));
